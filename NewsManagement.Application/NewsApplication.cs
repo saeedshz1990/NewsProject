@@ -4,7 +4,6 @@ using NewsManagement.Application.Contracts.News;
 using NewsManagement.Domain.NewsAgg;
 using NewsManagement.Domain.NewsCategoryAgg;
 using System.Collections.Generic;
-using System.IO;
 
 namespace NewsManagement.Application
 {
@@ -14,12 +13,12 @@ namespace NewsManagement.Application
         private readonly INewsCategoryRepository _newsCategoryRepository;
         private readonly IFileUploader _fileUploader;
 
-        public NewsApplication(INewsRepository newsRepository ,
+        public NewsApplication(INewsRepository newsRepository,
             INewsCategoryRepository newsCategoryRepository, IFileUploader fileUploader)
         {
             _newsRepository = newsRepository;
             _newsCategoryRepository = newsCategoryRepository;
-            _fileUploader = fileUploader;   
+            _fileUploader = fileUploader;
 
         }
 
@@ -60,14 +59,13 @@ namespace NewsManagement.Application
                 return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
             var slug = command.Slug.Slugify();
-            // var categorySlug = _articleCategoryRepository.GetSlugBy(command.categoryId);
             var path = $"{news.Category.Slug}/{slug}";
-            var publishDate = command.PublishDate.ToGeorgianDateTime();
-
             var pictureName = _fileUploader.Upload(command.Picture, path);
+            var publishDate = command.PublishDate.ToGeorgianDateTime();
+            
             news.Edit(command.Title, command.ShortDescription, command.Description, pictureName,
-        command.PictureAlt, command.PictureTitle, publishDate, slug, command.KeyWords, command.Metadescription,
-        command.CanonicalAddress, command.CategoryId);
+                        command.PictureAlt, command.PictureTitle, publishDate, slug, command.KeyWords,
+                        command.Metadescription,command.CanonicalAddress, command.CategoryId);
 
             _newsRepository.SaveChanges();
             return operation.Succedded();

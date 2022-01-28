@@ -4,7 +4,6 @@
     Layout = "Shared/_AdminLayout";
     ViewData["Title"] = "ویرایش خبر";
 }
-
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
@@ -48,7 +47,7 @@
                             <div class="form-group">
                                 <label asp-for="Command.CategoryId">گروه مقاله</label>
                                 <select class="form-control" asp-for="Command.CategoryId" asp-items="Model.NewsCategories">
-                                   <option value="0">گروه مقاله ...</option>
+                                    <option value="0">گروه مقاله ...</option>
                                 </select>
                             </div>
                         </div>
@@ -115,8 +114,8 @@
                                 <span asp-validation-for="Command.CanonicalAddress" class="error"></span>
                             </div>
                         </div>
+                        <input type="hidden" asp-for="Command.Id" value="Command.Id" />
                     </div>
-                    <input type="hidden" asp-for="Command.Id" value="Command.Id" />
                     <button type="submit" class="btn btn-success waves-effect waves-light m-b-5">ویرایش</button>
                     <a asp-page="./Index" class="btn btn-dark waves-effect waves-light m-b-5">بازگشت</a>
                 </form>

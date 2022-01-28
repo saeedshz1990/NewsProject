@@ -20,7 +20,9 @@ namespace NewsManagement.Infrastructure.EFCore.Repository
 
         public EditNews GetDetails(long id)
         {
-            return _context.News.Select( x=> new EditNews
+            return _context
+                .News
+                .Select( x=> new EditNews
             {
                 Id = x.Id,
                 CanonicalAddress = x.CanonicalAddress,
@@ -34,12 +36,15 @@ namespace NewsManagement.Infrastructure.EFCore.Repository
                 ShortDescription = x.ShortDescription,
                 Slug = x.Slug,
                 Title = x.Title
+
             }).FirstOrDefault(x=>x.Id==id);
         }
 
         public News GetWithCategory(long id)
         {
-            return _context.News.Include(x => x.Category).FirstOrDefault(x=>x.Id==id);
+            return _context.News
+                .Include(x => x.Category)
+                .FirstOrDefault(x=>x.Id==id);
         }
 
         public List<NewsViewModel> Search(NewsSearchModel searchModel)
@@ -49,8 +54,10 @@ namespace NewsManagement.Infrastructure.EFCore.Repository
                 Id = x.Id,
                 Title = x.Title,
                 PublisDate = x.PublishDate.ToFarsi(),
-                ShortDescription = x.ShortDescription.Substring(0, Math.Min(x.ShortDescription.Length, 50)) + "....."
-
+                ShortDescription = x.ShortDescription.Substring(0, Math.Min(x.ShortDescription.Length, 50)) + ".....",
+                Picture=x.Picture,
+                CategoryId = x.CategoryId,
+                Category=x.Category.Name
             });
 
             if (!string.IsNullOrWhiteSpace(searchModel.Title))

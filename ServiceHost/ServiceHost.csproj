@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -14,6 +14,10 @@
   <ItemGroup>
     <ProjectReference Include="..\NewsManagement.Application.Contract\NewsManagement.Application.Contract.csproj" />
     <ProjectReference Include="..\NewsManagement.Configuration\NewsManagement.Infrastructure.Configuration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewComponents\" />
   </ItemGroup>
 
 </Project>

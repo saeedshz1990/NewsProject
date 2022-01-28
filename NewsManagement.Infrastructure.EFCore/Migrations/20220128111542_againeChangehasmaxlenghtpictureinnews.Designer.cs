@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewsManagement.Infrastructure.EFCore;
 
 namespace NewsManagement.Infrastructure.EFCore.Migrations
 {
     [DbContext(typeof(NewsManagementContext))]
-    partial class NewsManagementContextModelSnapshot : ModelSnapshot
+    [Migration("20220128111542_againeChangehasmaxlenghtpictureinnews")]
+    partial class againeChangehasmaxlenghtpictureinnews
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

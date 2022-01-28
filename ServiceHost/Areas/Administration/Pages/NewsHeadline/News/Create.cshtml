@@ -10,7 +10,7 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">ایجاد مقاله جدید</h3>
+                <h3 class="panel-title">ایجاد خبر جدید</h3>
             </div>
             <div class="panel-body">
                 <form method="post" enctype="multipart/form-data">
@@ -47,9 +47,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label asp-for="Command.CategoryId">گروه مقاله</label>
+                                <label asp-for="Command.CategoryId">گروه های خبری</label>
                                 <select class="form-control" asp-for="Command.CategoryId" asp-items="Model.NewsCategories">
-                                    <option value="0">گروه مقاله ...</option>
+                                    <option value="0">گروه خبر ...</option>
                                 </select>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label asp-for="Command.PictureTitle" class="control-label">عنوان</label>
+                                <label asp-for="Command.PictureTitle" class="control-label">عنوان عکس </label>
                                 <input type="text" class="form-control" asp-for="Command.PictureTitle">
                                 <span asp-validation-for="Command.PictureTitle" class="error"></span>
                             </div>

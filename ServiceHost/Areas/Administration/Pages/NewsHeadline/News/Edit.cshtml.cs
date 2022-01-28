@@ -30,7 +30,7 @@ namespace ServiceHost.Areas.Administration.Pages.NewsHeadline.News
         public IActionResult OnPost(EditNews command)
         {
             var result = _newsApplication.Edit(command);
-            return RedirectToPage("/Index");
+            return RedirectToPage("./Index");
         }
     }
 }
