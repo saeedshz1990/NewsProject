@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceHost", "ServiceHost\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0_FrameWork", "0_FrameWork\0_FrameWork.csproj", "{0316E0C2-7B77-4ABC-A93C-FEB66537272F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_NewsProjectQuery", "01_NewsProjectQuery\01_NewsProjectQuery.csproj", "{64428FDB-D396-4D9A-857E-64216574A075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_NewsProjectQuery", "01_NewsProjectQuery\01_NewsProjectQuery.csproj", "{64428FDB-D396-4D9A-857E-64216574A075}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

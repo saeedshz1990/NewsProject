@@ -17,6 +17,7 @@
     <ProjectReference Include="..\0_FrameWork\0_FrameWork.csproj" />
     <ProjectReference Include="..\NewsManagement.Application.Contract\NewsManagement.Application.Contract.csproj" />
     <ProjectReference Include="..\NewsManagement.Domain\NewsManagement.Domain.csproj" />
+    <ProjectReference Include="..\NewsManagement.Infrastructure.EFCore\NewsManagement.Infrastructure.EFCore.csproj" />
   </ItemGroup>
 
 </Project>

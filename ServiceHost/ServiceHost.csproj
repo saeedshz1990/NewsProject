@@ -12,12 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\01_NewsProjectQuery\01_NewsProjectQuery.csproj" />
     <ProjectReference Include="..\NewsManagement.Application.Contract\NewsManagement.Application.Contract.csproj" />
     <ProjectReference Include="..\NewsManagement.Configuration\NewsManagement.Infrastructure.Configuration.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewComponents\" />
   </ItemGroup>
 
 </Project>

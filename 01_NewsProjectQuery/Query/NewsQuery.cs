@@ -26,20 +26,20 @@ namespace _01_NewsProjectQuery.Query
                 {
                     Id = x.Id,
                     Title = x.Title,
-                    Picture=x.Picture,
-                    PictureAlt=x.PictureAlt,
-                    PictureTitle=x.PictureTitle,    
-                    PublishDate=x.PublishDate.ToFarsi(),
-                    CanonicalAddress=x.CanonicalAddress,    
-                    CategoryId=x.CategoryId,    
-                    CategoryName=x.Category.Name,
-                    CategorySlug=x.Category.Slug,
-                    Slug=x.Slug,    
-                    Description=x.Description,
-                    MetaDescription=x.Metadescription,
-                    ShortDescription=x.ShortDescription,
-                    Keywords=x.KeyWords
-                }).FirstOrDefault(x=>x.Slug==slug);
+                    Picture = x.Picture,
+                    PictureAlt = x.PictureAlt,
+                    PictureTitle = x.PictureTitle,
+                    PublishDate = x.PublishDate.ToFarsi(),
+                    CanonicalAddress = x.CanonicalAddress,
+                    CategoryId = x.CategoryId,
+                    CategoryName = x.Category.Name,
+                    CategorySlug = x.Category.Slug,
+                    Slug = x.Slug,
+                    Description = x.Description,
+                    MetaDescription = x.Metadescription,
+                    ShortDescription = x.ShortDescription,
+                    Keywords = x.KeyWords
+                }).FirstOrDefault(x => x.Slug == slug);
 
             if (!string.IsNullOrWhiteSpace(news.Keywords))
                 news.KeywordList = news.Keywords.Split(",").ToList();
@@ -61,6 +61,7 @@ namespace _01_NewsProjectQuery.Query
                     PictureTitle = x.PictureTitle,
                     PublishDate = x.PublishDate.ToFarsi(),
                     ShortDescription = x.ShortDescription,
+
                 }).ToList();
         }
     }

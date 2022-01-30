@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NewsManagement.Domain.NewsAgg;
 using NewsManagement.Domain.NewsCategoryAgg;
+using NewsManagement.Domain.SlideAgg;
 using NewsManagement.Infrastructure.EFCore.Mapping;
 
 namespace NewsManagement.Infrastructure.EFCore
@@ -9,7 +10,8 @@ namespace NewsManagement.Infrastructure.EFCore
     {
         public DbSet<News> News { get; set; }
         public DbSet<NewsCategory> NewsCategories { get; set; }
-        
+        public DbSet<Slide> Slides { get; set; }
+
 
         public NewsManagementContext(DbContextOptions<NewsManagementContext> options) : base(options)
         {
