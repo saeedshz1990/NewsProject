@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>_01_NewsProjectQuery</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CommentManagement.Application\CommentManagement.Application.csproj" />
+    <ProjectReference Include="..\CommentManagement.Domain\CommentManagement.Domain.csproj" />
     <ProjectReference Include="..\CommentManagment.Infrastructure.EFCore\CommentManagment.Infrastructure.EFCore.csproj" />
-    <ProjectReference Include="..\NewsManagement.Infrastructure.EFCore\NewsManagement.Infrastructure.EFCore.csproj" />
   </ItemGroup>
 
 </Project>

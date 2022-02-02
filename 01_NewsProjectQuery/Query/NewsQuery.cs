@@ -1,5 +1,7 @@
 ﻿using _0_Framework.Application;
+using _01_NewsProjectQuery.Contracts.Comment;
 using _01_NewsProjectQuery.Contracts.News;
+using CommentManagment.Infrastructure.EFCore;
 using Microsoft.EntityFrameworkCore;
 using NewsManagement.Infrastructure.EFCore;
 using System;
@@ -11,10 +13,13 @@ namespace _01_NewsProjectQuery.Query
     public class NewsQuery : INewsQuery
     {
         private readonly NewsManagementContext _context;
+        private readonly CommnetContext _commnetContext;
 
-        public NewsQuery(NewsManagementContext context)
+
+        public NewsQuery(NewsManagementContext context, CommnetContext commnetContext)
         {
             _context = context;
+            _commnetContext = commnetContext;
         }
 
         public NewsQueryModel GetNewsDetails(string slug)
@@ -43,6 +48,29 @@ namespace _01_NewsProjectQuery.Query
 
             if (!string.IsNullOrWhiteSpace(news.Keywords))
                 news.KeywordList = news.Keywords.Split(",").ToList();
+
+            var comments = _commnetContext.Comments
+               .Where(x => !x.IsCanceled)
+               .Where(x => x.IsConfirmed)
+               .Where(x => x.OwnerRecordId == news.Id)
+               .Select(x => new CommentQueryModel
+               {
+                   Id = x.Id,
+                   Message = x.Message,
+                   Name = x.Name,
+                   ParentId = x.ParentId,
+                   CreationDate = x.CreationDate.ToFarsi()
+               }).OrderByDescending(x => x.Id).ToList();
+
+            foreach (var comment in comments)
+            {
+                if (comment.ParentId > 0)
+                    comment.parentName = comments
+                        .FirstOrDefault(x => x.Id == comment.ParentId)?.Name;
+            }
+
+            news.Comments = comments;
+
 
             return news;
         }

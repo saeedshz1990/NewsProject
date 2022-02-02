@@ -1,5 +1,6 @@
 ﻿using _01_NewsProjectQuery.Contracts.News;
 using _01_NewsProjectQuery.Contracts.NewsCategory;
+using _01_NewsProjectQuery.Contracts.Slide;
 using _01_NewsProjectQuery.Query;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,7 @@ namespace NewsManagement.Infrastructure.Configuration
             services.AddTransient<INewsQuery, NewsQuery>();
             services.AddTransient<INewsCategoryQuery, NewsCategoryQuery>();
 
+            services.AddTransient<ISlideQuery, SlideQuery>();
 
             services.AddDbContext<NewsManagementContext>(x => x.UseSqlServer(connectionString));
         }
