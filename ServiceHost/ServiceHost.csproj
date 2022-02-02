@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\01_NewsProjectQuery\01_NewsProjectQuery.csproj" />
+    <ProjectReference Include="..\0_FrameWork\0_FrameWork.csproj" />
+    <ProjectReference Include="..\AccountMangement.Infrastructure.Configuration\AccountMangement.Infrastructure.Configuration.csproj" />
     <ProjectReference Include="..\CommentManagement.Application.Contracts\CommentManagement.Application.Contracts.csproj" />
     <ProjectReference Include="..\CommentManagment.Infrastructure.Configuration\CommentManagment.Infrastructure.Configuration.csproj" />
     <ProjectReference Include="..\NewsManagement.Application.Contract\NewsManagement.Application.Contract.csproj" />

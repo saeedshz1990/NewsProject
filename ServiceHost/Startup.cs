@@ -1,4 +1,5 @@
 using _0_FrameWork.Application;
+using AccountMangement.Infrastructure.Configuration;
 using CommentManagment.Infrastructure.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NewsManagement.Infrastructure.Configuration;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace ServiceHost
 {
@@ -21,9 +24,15 @@ namespace ServiceHost
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             var connectionString = Configuration.GetConnectionString("PressDB");
             NewsManagementBootstrapper.Configure(services, connectionString);
-           CommentBootstrapper.Configure(services, connectionString);
+            CommentBootstrapper.Configure(services, connectionString);
+             AccountBootstrapper.Configure(services, connectionString);
+
+            services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
+            services.AddTransient<IAuthHelper, AuthHelper>();
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
             services.AddTransient<IFileUploader, FileUploader>();
 
             services.AddRazorPages();
